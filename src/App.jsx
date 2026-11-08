@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { images, icons } from "./assets";
+import TermsPage from "./TermsOfService.jsx";
+import PrivacyPolicy from "./PrivacyPolicy.jsx";
 
 
 const steps = [
@@ -625,8 +627,8 @@ function Footer() {
       "Become a technician": "#become-tech",
       Contact: "#contact",
       "Help Center": "#faq",
-      Privacy: "#privacy",
-      Terms: "#terms",
+      Privacy: "/privacy-policy",
+      Terms: "/terms-of-service",
       Safety: "#safety",
       "View all": "#services",
       Electrician: "#services",
@@ -714,6 +716,14 @@ function Footer() {
 }
 
 export default function App() {
+  if (window.location.pathname === "/terms-of-service") {
+    return <TermsPage />;
+  }
+
+  if (window.location.pathname === "/privacy-policy") {
+    return <PrivacyPolicy />;
+  }
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#F7F2E9] font-sans text-[#24483A]">
       <Navbar />
